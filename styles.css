@@ -1,0 +1,527 @@
+/* Reset styles and basic settings */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #1A362D 0%, #0F2419 50%, #1A362D 100%);
+    color: #ffffff;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Prison container */
+.prison-container {
+    position: relative;
+    min-height: 100vh;
+    background-image: 
+        radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
+}
+
+/* Barbed wire */
+.barbed-wire {
+    height: 20px;
+    background: linear-gradient(90deg, 
+        #666 0%, #666 20%, #999 20%, #999 40%, #666 40%, #666 60%, #999 60%, #999 80%, #666 80%, #666 100%);
+    position: relative;
+    margin: 10px 0;
+}
+
+.barbed-wire::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: 0;
+    right: 0;
+    height: 10px;
+    background: repeating-linear-gradient(90deg, 
+        transparent 0px, transparent 8px, #999 8px, #999 12px);
+}
+
+/* Header */
+.prison-header {
+    text-align: center;
+    padding: 40px 20px;
+    position: relative;
+}
+
+.prison-title {
+    font-family: 'Orbitron', monospace;
+    font-size: 4rem;
+    font-weight: 900;
+    color: #ff4444;
+    text-shadow: 
+        0 0 10px #ff4444,
+        0 0 20px #ff4444,
+        0 0 30px #ff4444,
+        2px 2px 0px #000000;
+    margin: 20px 0;
+    letter-spacing: 3px;
+    animation: prisonGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes prisonGlow {
+    from {
+        text-shadow: 
+            0 0 10px #ff4444,
+            0 0 20px #ff4444,
+            0 0 30px #ff4444,
+            2px 2px 0px #000000;
+    }
+    to {
+        text-shadow: 
+            0 0 15px #ff4444,
+            0 0 25px #ff4444,
+            0 0 35px #ff4444,
+            2px 2px 0px #000000;
+    }
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: #cccccc;
+    letter-spacing: 2px;
+    margin-top: 10px;
+}
+
+/* Main content */
+.prison-main {
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Criminals gallery */
+.criminals-gallery {
+    margin-bottom: 60px;
+}
+
+.gallery-title {
+    font-family: 'Orbitron', monospace;
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 40px;
+    color: #ffaa00;
+    text-shadow: 2px 2px 4px #000000;
+    letter-spacing: 2px;
+}
+
+/* Carousel */
+.carousel-container {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+    overflow: hidden;
+    border: 3px solid #666;
+    border-radius: 15px;
+    background: linear-gradient(145deg, #2a4a3a, #1a362d);
+    box-shadow: 
+        inset 0 0 20px rgba(0, 0, 0, 0.5),
+        0 0 30px rgba(0, 0, 0, 0.8);
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    padding: 20px;
+    gap: 20px;
+}
+
+.criminal-card {
+    flex: 0 0 300px;
+    background: linear-gradient(145deg, #3a5a4a, #2a4a3a);
+    border: 2px solid #666;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 
+        0 4px 15px rgba(0, 0, 0, 0.6),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.criminal-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 
+        0 8px 25px rgba(0, 0, 0, 0.8),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.mugshot {
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.prison-number {
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    background: #ff4444;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 50%;
+    font-weight: bold;
+    font-size: 0.9rem;
+    border: 2px solid #000;
+    z-index: 2;
+}
+
+.criminal-photo {
+    font-size: 4rem;
+    margin: 20px 0;
+    background: #1a1a1a;
+    border: 3px solid #666;
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 15px;
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.8);
+    overflow: hidden;
+    position: relative;
+}
+
+.criminal-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+
+.criminal-photo:hover img {
+    transform: scale(1.1);
+}
+
+.fallback-emoji {
+    font-size: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.criminal-name {
+    font-family: 'Orbitron', monospace;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #ffaa00;
+    margin-bottom: 8px;
+    text-shadow: 1px 1px 2px #000;
+}
+
+.crime {
+    font-size: 0.9rem;
+    color: #cccccc;
+    font-style: italic;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 5px 10px;
+    border-radius: 5px;
+    border-left: 3px solid #ff4444;
+}
+
+/* Carousel buttons */
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: linear-gradient(145deg, #4a6a5a, #3a5a4a);
+    border: 2px solid #666;
+    color: white;
+    font-size: 2rem;
+    font-weight: bold;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 3;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+}
+
+.carousel-btn:hover {
+    background: linear-gradient(145deg, #5a7a6a, #4a6a5a);
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.8);
+}
+
+.prev {
+    left: 15px;
+}
+
+.next {
+    right: 15px;
+}
+
+/* Token information */
+.token-info {
+    margin-bottom: 40px;
+}
+
+.prison-cell {
+    background: linear-gradient(145deg, #2a4a3a, #1a362d);
+    border: 3px solid #666;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 
+        inset 0 0 20px rgba(0, 0, 0, 0.5),
+        0 0 30px rgba(0, 0, 0, 0.8);
+    position: relative;
+}
+
+.prison-cell::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #ff4444, #ffaa00, #ff4444);
+}
+
+.prison-cell h3 {
+    font-family: 'Orbitron', monospace;
+    font-size: 1.8rem;
+    color: #ffaa00;
+    margin-bottom: 20px;
+    text-align: center;
+    text-shadow: 2px 2px 4px #000;
+}
+
+.prison-cell p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 25px;
+    text-align: center;
+    color: #cccccc;
+}
+
+.token-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-top: 25px;
+}
+
+.stat {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 15px;
+    border-radius: 8px;
+    border-left: 4px solid #ff4444;
+    text-align: center;
+}
+
+.stat-label {
+    display: block;
+    font-size: 0.9rem;
+    color: #aaaaaa;
+    margin-bottom: 5px;
+}
+
+.stat-value {
+    display: block;
+    font-family: 'Orbitron', monospace;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #ffaa00;
+    text-shadow: 1px 1px 2px #000;
+}
+
+/* Action buttons */
+.action-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+}
+
+.prison-btn {
+    padding: 15px 30px;
+    border: none;
+    border-radius: 8px;
+    font-family: 'Orbitron', monospace;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    overflow: hidden;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.prison-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.prison-btn:hover::before {
+    left: 100%;
+}
+
+.primary {
+    background: linear-gradient(145deg, #ff4444, #cc3333);
+    color: white;
+    box-shadow: 0 4px 15px rgba(255, 68, 68, 0.4);
+}
+
+.primary:hover {
+    background: linear-gradient(145deg, #ff5555, #dd4444);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 68, 68, 0.6);
+}
+
+.secondary {
+    background: linear-gradient(145deg, #4a6a5a, #3a5a4a);
+    color: white;
+    border: 2px solid #666;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+.secondary:hover {
+    background: linear-gradient(145deg, #5a7a6a, #4a6a5a);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+}
+
+.danger {
+    background: linear-gradient(145deg, #ffaa00, #cc8800);
+    color: #000;
+    box-shadow: 0 4px 15px rgba(255, 170, 0, 0.4);
+}
+
+.danger:hover {
+    background: linear-gradient(145deg, #ffbb11, #dd9900);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 170, 0, 0.6);
+}
+
+.info {
+    background: linear-gradient(145deg, #4a90e2, #357abd);
+    color: white;
+    box-shadow: 0 4px 15px rgba(74, 144, 226, 0.4);
+}
+
+.info:hover {
+    background: linear-gradient(145deg, #5ba0f2, #4680cd);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(74, 144, 226, 0.6);
+}
+
+/* Link styles for buttons */
+.prison-btn:link,
+.prison-btn:visited {
+    color: inherit;
+    text-decoration: none;
+}
+
+.prison-btn:hover {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Footer */
+.prison-footer {
+    background: linear-gradient(145deg, #1a362d, #0f2419);
+    border-top: 3px solid #666;
+    padding: 30px 20px;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.warning {
+    background: linear-gradient(145deg, #00ff00, #00cc00);
+    color: #000;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    box-shadow: 0 4px 15px rgba(0, 255, 0, 0.4);
+    animation: moneyGlow 2s ease-in-out infinite;
+    border: 2px solid #ffff00;
+}
+
+@keyframes moneyGlow {
+    0%, 100% { 
+        box-shadow: 0 4px 15px rgba(0, 255, 0, 0.4);
+        transform: scale(1);
+    }
+    50% { 
+        box-shadow: 0 6px 25px rgba(0, 255, 0, 0.8), 0 0 30px rgba(255, 255, 0, 0.6);
+        transform: scale(1.02);
+    }
+}
+
+.footer-text {
+    color: #aaaaaa;
+    font-size: 0.9rem;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .prison-title {
+        font-size: 2.5rem;
+    }
+    
+    .gallery-title {
+        font-size: 2rem;
+    }
+    
+    .criminal-card {
+        flex: 0 0 250px;
+    }
+    
+    .carousel-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 1.5rem;
+    }
+    
+    .action-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .prison-btn {
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    .token-stats {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .prison-title {
+        font-size: 2rem;
+        letter-spacing: 1px;
+    }
+    
+    .criminal-card {
+        flex: 0 0 200px;
+        padding: 15px;
+    }
+    
+    .criminal-photo {
+        width: 80px;
+        height: 80px;
+        font-size: 2.5rem;
+    }
+}
