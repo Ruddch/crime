@@ -623,7 +623,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // CA (Contract Address) copy function
 function copyCA() {
-    const contractAddress = '0x1234567890abcdef1234567890abcdef12345678'; // Replace with actual contract address
+    const contractAddress = '0x04eC01e9eadF9B0186b67bfA8e67424b86c3fb3b'; // Replace with actual contract address
     const button = document.getElementById('caButton');
     
     // Copy to clipboard
