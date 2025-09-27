@@ -227,6 +227,18 @@ body {
     border-left: 3px solid #ff4444;
 }
 
+.crime a {
+    color: #ffaa00;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.crime a:hover {
+    color: #ffffff;
+    text-shadow: 0 0 5px #ffaa00;
+    text-decoration: underline;
+}
+
 /* Carousel buttons */
 .carousel-btn {
     position: absolute;

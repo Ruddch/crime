@@ -114,7 +114,7 @@ class PrisonCarousel {
         this.nextBtn.style.opacity = this.currentIndex === this.maxIndex ? '0.5' : '1';
         
         // Add prison sound effect (visual feedback)
-        this.addPrisonSoundEffect();
+        // this.addPrisonSoundEffect();
     }
     
     addSlideEffect(direction) {
@@ -343,19 +343,19 @@ class PrisonButtonEffects {
     addPrisonClickSound() {
         // Visual feedback for button clicks
         const soundWave = document.createElement('div');
-        soundWave.style.cssText = `
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            width: 2px;
-            height: 2px;
-            background: #ff4444;
-            border-radius: 50%;
-            transform: translate(-50%, -50%);
-            animation: prisonClickWave 0.5s ease-out;
-            pointer-events: none;
-            z-index: 1000;
-        `;
+        // soundWave.style.cssText = `
+        //     position: fixed;
+        //     top: 50%;
+        //     left: 50%;
+        //     width: 2px;
+        //     height: 2px;
+        //     background: #ff4444;
+        //     border-radius: 50%;
+        //     transform: translate(-50%, -50%);
+        //     animation: prisonClickWave 0.5s ease-out;
+        //     pointer-events: none;
+        //     z-index: 1000;
+        // `;
         
         document.body.appendChild(soundWave);
         
